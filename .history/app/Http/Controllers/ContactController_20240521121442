@@ -1,0 +1,33 @@
+<?php
+// app/Http/Controllers/ContactController.php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+
+class ContactController extends Controller
+{
+    public function send(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'message' => 'required|string',
+        ]);
+
+        $data = [
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'message' => $validatedData['message'],
+        ];
+
+        Mail::send('emails.contact', $data, function ($message) use ($data) {
+            $message->to('Swapnilkundu01@gmail.com')
+                    ->subject('Contact Form Message')
+                    ->from($data['email'], $data['name']);
+        });
+
+        return redirect()->back()->with('success', 'Message sent successfully!');
+    }
+}
