@@ -7,7 +7,6 @@ use App\Models\MemberImage;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 
 class MemberController extends Controller
 {
@@ -30,10 +29,11 @@ class MemberController extends Controller
         }
     }
 
-    
-        public function storeMember(Request $request)
-        {
-        
+
+    public function storeMember(Request $request)
+    {
+        <dd></dd>
+
         $request->validate([
             'name' => 'required',
             'gender' => 'required',
@@ -47,9 +47,9 @@ class MemberController extends Controller
             'occupation' => 'required',
             'qualification' => 'required',
             'created_for' => 'required',
-            'pics.*' => 'image', // Validate each file
+            'pics.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validate each file
         ]);
-
+    
         try {
             $id = isset($request->id) ? $request->id : '';
             if ($id) {
@@ -71,16 +71,16 @@ class MemberController extends Controller
             $member->occupation = $request->occupation;
             $member->qualification = $request->qualification;
             $member->status = isset($request->status) ? $request->status : 0;
-
+    
             $member->save();
-
+    
             if ($request->hasFile('pics')) {
                 foreach ($request->file('pics') as $image) {
-                    $uniqueId = $uniqueId = Str::uuid();
+                    $uniqueId = uniqid(); // Generate a unique ID for each image
                     $imageName = $member->name . '_' . $uniqueId . '.' . $image->extension();
                     $folderPath = 'members/';
                     $image->move(public_path($folderPath), $imageName);
-
+    
                     // Save each image in a separate table for images
                     $memberImage = new MemberImage();
                     $memberImage->member_id = $member->id;
@@ -88,7 +88,7 @@ class MemberController extends Controller
                     $memberImage->save();
                 }
             }
-
+    
             if ($id) {
                 return redirect('/members/list')->with('success', 'Member information updated successfully.');
             }
@@ -97,7 +97,109 @@ class MemberController extends Controller
             return redirect()->back()->withInput()->withErrors(['error' => $e->getMessage()]);
         }
     }
+    
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //store
+    // public function storeMember(Request $request){
+    //     $request->validate([
+    //         'name'=>'required',
+    //         'gender' => 'required',
+    //         'age'=>'required',
+    //         'material_status'=>'required',
+    //         'religion'=>'required',
+    //         'nationality'=>'required',
+    //         'city'=>'required',
+    //         'address'=>'required',
+    //         'mobile'=>'required',
+    //         'occupation'=>'required',
+    //         'qualification'=>'required',
+    //         'created_for'=>'required',
+    //     ]);
+    //     try {
+    //         $id = isset($request->id)?$request->id:'';
+    //         if($id){
+    //             $member = Member::find($id);
+    //         }else{
+    //             $member = new Member();
+    //         }
+    //         $member->created_by = Auth::user()->id;
+    //         $member->created_for = $request->created_for;
+    //         $member->name = $request->name;
+    //         $member->gender = $request->gender;
+    //         $member->age = $request->age;
+    //         $member->material_status = $request->material_status;
+    //         $member->religion = $request->religion;
+    //         $member->nationality = $request->nationality;
+    //         $member->city = $request->city;
+    //         $member->address = $request->address;
+    //         $member->mobile = $request->mobile;
+
+    //         if($request->hasFile('pic')){
+    //             $image = $request->file('pic');
+    //             $imageName = $member->name.'_'.time().'.'.$image->extension();
+    //             $folderPath = 'members/';
+
+    //             $image->move(public_path($folderPath), $imageName);
+
+    //             $member->pic = $folderPath.$imageName;
+    //         }
+
+
+
+
+    //         $member->occupation = $request->occupation;
+    //         $member->qualification = $request->qualification;
+    //         $member->status = isset($request->status)?$request->status:0;
+    //         $member->save();
+    //         if($id){
+    //             return redirect('/members/list')->with('success','Member information update successfully.');
+    //         }
+    //         return redirect('/user-profile/details/'.Auth::user()->id);
+    //     } catch (\Exception $e){
+    //         return redirect()->back()->withInput();
+    //     }
+    // }
 
     public function profileDetails($id){
         $member = Member::find($id);

@@ -27,10 +27,11 @@ class MemberController extends Controller
             return view('admin.members.edit-profile',compact('user'));
         }catch (\Exception $e){
             dd($e->getMessage());
-        }
-    }
 
-    
+
+
+
+
         public function storeMember(Request $request)
         {
         

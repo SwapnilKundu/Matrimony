@@ -30,7 +30,26 @@ class MemberController extends Controller
         }
     }
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public function storeMember(Request $request)
         {
         

@@ -183,7 +183,7 @@
                                 <div class="col-md-6 d-flex">
                                     <lable class="col-md-4">Photo :</lable>
                                     <div class="col-md-4 mr-4">
-                                        <input type="file" name="pics[]" multiple class="form-control" accept="image/*" id="pic" value="{{old('pic')}}">
+                                        <input type="file" name="pics[]" class="form-control" accept="image/*" id="pic" value="{{old('pic')}}">
                                         @if ($errors->has('pic'))
                                             <span class="text-danger">{{ $errors->first('pic') }}</span>
                                         @endif

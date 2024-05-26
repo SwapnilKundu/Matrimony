@@ -26,10 +26,4 @@ class Member extends Model
         'qualification',
         'status',
     ];
-
-
-    public function images()
-    {
-        return $this->hasMany(MemberImage::class);
-    }
 }

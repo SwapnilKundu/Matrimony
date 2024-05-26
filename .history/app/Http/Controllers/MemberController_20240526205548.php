@@ -29,8 +29,6 @@ class MemberController extends Controller
             dd($e->getMessage());
         }
     }
-
-    
         public function storeMember(Request $request)
         {
         

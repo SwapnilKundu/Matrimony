@@ -85,7 +85,6 @@
 </script>
 
 
-
 @endsection
 @section('custom-scripts')
     <script>

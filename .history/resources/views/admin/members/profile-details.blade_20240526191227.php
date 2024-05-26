@@ -56,20 +56,27 @@
         </div>
     </div>
 
-
-
-
-
-
-
     <div style="padding: 20px; max-width: 1200px; margin: auto;">
     <h1 style="text-align: center; margin-bottom: 20px; color: #333;">Photo Gallery</h1>
     <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-        @foreach ($member->images as $image)
-            <div style="flex: 1 1 calc(33.333% - 20px); box-sizing: border-box; margin: 10px; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.2s;">
-                <img src="{{ asset($image->path) }}" alt="Gallery Image" style="width: 100%; height: auto; display: block;">
-            </div>
-        @endforeach
+        <div style="flex: 1 1 calc(33.333% - 20px); box-sizing: border-box; margin: 10px; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.2s;">
+            <img src="https://via.placeholder.com/300" alt="Gallery Image" style="width: 100%; height: auto; display: block;">
+        </div>
+        <div style="flex: 1 1 calc(33.333% - 20px); box-sizing: border-box; margin: 10px; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.2s;">
+            <img src="https://via.placeholder.com/300" alt="Gallery Image" style="width: 100%; height: auto; display: block;">
+        </div>
+        <div style="flex: 1 1 calc(33.333% - 20px); box-sizing: border-box; margin: 10px; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.2s;">
+            <img src="https://via.placeholder.com/300" alt="Gallery Image" style="width: 100%; height: auto; display: block;">
+        </div>
+        <div style="flex: 1 1 calc(33.333% - 20px); box-sizing: border-box; margin: 10px; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.2s;">
+            <img src="https://via.placeholder.com/300" alt="Gallery Image" style="width: 100%; height: auto; display: block;">
+        </div>
+        <div style="flex: 1 1 calc(33.333% - 20px); box-sizing: border-box; margin: 10px; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.2s;">
+            <img src="https://via.placeholder.com/300" alt="Gallery Image" style="width: 100%; height: auto; display: block;">
+        </div>
+        <div style="flex: 1 1 calc(33.333% - 20px); box-sizing: border-box; margin: 10px; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.2s;">
+            <img src="https://via.placeholder.com/300" alt="Gallery Image" style="width: 100%; height: auto; display: block;">
+        </div>
     </div>
 </div>
 <script>
@@ -83,8 +90,6 @@
         });
     });
 </script>
-
-
 
 @endsection
 @section('custom-scripts')
