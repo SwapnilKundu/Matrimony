@@ -218,15 +218,19 @@
     </div>
 @endsection
 @section('custom-scripts')
-
 <script>
     $(document).ready(function () {
         // Function to handle file input change event
         function handleFileInputChange(event) {
-            $(event.target)
-                .closest('.col-md-6')
-                .find('.preview')
-                .attr('src', URL.createObjectURL(event.target.files[0]));
+            // Get the closest parent div of the file input field
+            var parentDiv = $(event.target).closest('.col-md-6');
+            // Update the preview image source
+            parentDiv.find('.preview').attr('src', URL.createObjectURL(event.target.files[0]));
+            // Check if it's the first file input field
+            if (parentDiv.index() === 0) {
+                // Add the text below the preview
+                parentDiv.append('<p class="profile-text">This will be your profile picture</p>');
+            }
         }
 
         // Event listener for file input change on page load and existing file inputs
@@ -234,7 +238,7 @@
             handleFileInputChange(event);
         });
 
-       
+        // Event listener for adding another file input
         $('#addFileInput').click(function () {
             // Template for new file input
             var newInput = '<div class="row mt-2">' +
@@ -249,16 +253,18 @@
                 '</div>' +
                 '</div>';
 
-            
+            // Append new file input to container
             $('#fileUploadContainer').append(newInput);
 
-            
+            // Add change event listener to dynamically added file inputs
             $('.file-input').on('change', function (event) {
                 handleFileInputChange(event);
             });
         });
     });
 </script>
+
+
 
 
 @endsection

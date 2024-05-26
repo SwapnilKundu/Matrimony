@@ -200,7 +200,7 @@
                             <!-- Add another file upload button -->
                             <div class="row mt-2">
                                 <div class="col-md-12 d-flex justify-content-between">
-                                    <button type="button" class="btn btn-success" id="addFileInput">Add Another Photo</button>
+                                    <button type="button" class="btn btn-success" id="addFileInput">Add Another File</button>
                                 </div>
                             </div>
 
@@ -218,47 +218,6 @@
     </div>
 @endsection
 @section('custom-scripts')
-
-<script>
-    $(document).ready(function () {
-        // Function to handle file input change event
-        function handleFileInputChange(event) {
-            $(event.target)
-                .closest('.col-md-6')
-                .find('.preview')
-                .attr('src', URL.createObjectURL(event.target.files[0]));
-        }
-
-        // Event listener for file input change on page load and existing file inputs
-        $('#pic, .file-input').on('change', function (event) {
-            handleFileInputChange(event);
-        });
-
-       
-        $('#addFileInput').click(function () {
-            // Template for new file input
-            var newInput = '<div class="row mt-2">' +
-                '<div class="col-md-6 d-flex">' +
-                '<lable class="col-md-4">Photo :</lable>' +
-                '<div class="col-md-4 mr-4">' +
-                '<input type="file" name="pics[]" class="form-control file-input" accept="image/*"> ' +
-                '</div>' +
-                '<div class="mx-4">' +
-                '<img class="preview" src="" alt="" style="height: 100px; width: 100px;">' +
-                '</div>' +
-                '</div>' +
-                '</div>';
-
-            
-            $('#fileUploadContainer').append(newInput);
-
-            
-            $('.file-input').on('change', function (event) {
-                handleFileInputChange(event);
-            });
-        });
-    });
-</script>
 
 
 @endsection

@@ -117,8 +117,7 @@
                                         <input type="text" name="city" class="form-control" value="{{old('city')}}">
                                         @if ($errors->has('city'))
                                             <span class="text-danger">{{ $errors->first('city') }}</span>
-                                       
-                                            @endif
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-6 d-flex">
@@ -180,29 +179,52 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mt-2">
+
+
+                            <!-- <div class="row  mt-2">
                                 <div class="col-md-6 d-flex">
                                     <lable class="col-md-4">Photo :</lable>
                                     <div class="col-md-4 mr-4">
-                                        <!-- Change the ID to a class for multiple file inputs -->
-                                        <input type="file" name="pics[]" class="form-control file-input" accept="image/*" value="{{old('pic')}}">
+                                        <input type="file" name="pics[]" multiple class="form-control" accept="image/*" id="pic" value="{{old('pic')}}">
                                         @if ($errors->has('pic'))
                                             <span class="text-danger">{{ $errors->first('pic') }}</span>
                                         @endif
                                     </div>
                                     <div class="mx-4">
-                                        <img class="preview" src="" alt="" style="height: 100px; width: 100px;">
+                                        <img id="preview" src="" alt="" style="height: 100px; width: 100px;">
                                     </div>
                                 </div>
-                            </div>
-                            <div id="fileUploadContainer"></div> <!-- Container for dynamically added file upload fields -->
+                            </div> -->
 
-                            <!-- Add another file upload button -->
-                            <div class="row mt-2">
-                                <div class="col-md-12 d-flex justify-content-between">
-                                    <button type="button" class="btn btn-success" id="addFileInput">Add Another Photo</button>
-                                </div>
-                            </div>
+
+                            <!-- Existing HTML code -->
+
+<div class="row mt-2">
+    <div class="col-md-6 d-flex">
+        <lable class="col-md-4">Photo :</lable>
+        <div class="col-md-4 mr-4">
+            <!-- Change the ID to a class for multiple file inputs -->
+            <input type="file" name="pics[]" class="form-control file-input" accept="image/*" value="{{old('pic')}}">
+            @if ($errors->has('pic'))
+                <span class="text-danger">{{ $errors->first('pic') }}</span>
+            @endif
+        </div>
+        <div class="mx-4">
+            <img class="preview" src="" alt="" style="height: 100px; width: 100px;">
+        </div>
+    </div>
+</div>
+<div id="fileUploadContainer"></div> <!-- Container for dynamically added file upload fields -->
+
+<!-- Add another file upload button -->
+<div class="row mt-2">
+    <div class="col-md-12 d-flex justify-content-between">
+        <button class="btn btn-success" id="addFileInput">Add Another File</button>
+    </div>
+</div>
+
+
+
 
                             <div class="row  mt-4">
                                 <div class="col-md-12 d-flex justify-content-between">
@@ -218,47 +240,14 @@
     </div>
 @endsection
 @section('custom-scripts')
-
-<script>
-    $(document).ready(function () {
-        // Function to handle file input change event
-        function handleFileInputChange(event) {
-            $(event.target)
-                .closest('.col-md-6')
-                .find('.preview')
-                .attr('src', URL.createObjectURL(event.target.files[0]));
-        }
-
-        // Event listener for file input change on page load and existing file inputs
-        $('#pic, .file-input').on('change', function (event) {
-            handleFileInputChange(event);
-        });
-
-       
-        $('#addFileInput').click(function () {
-            // Template for new file input
-            var newInput = '<div class="row mt-2">' +
-                '<div class="col-md-6 d-flex">' +
-                '<lable class="col-md-4">Photo :</lable>' +
-                '<div class="col-md-4 mr-4">' +
-                '<input type="file" name="pics[]" class="form-control file-input" accept="image/*"> ' +
-                '</div>' +
-                '<div class="mx-4">' +
-                '<img class="preview" src="" alt="" style="height: 100px; width: 100px;">' +
-                '</div>' +
-                '</div>' +
-                '</div>';
-
-            
-            $('#fileUploadContainer').append(newInput);
-
-            
-            $('.file-input').on('change', function (event) {
-                handleFileInputChange(event);
+    <script>
+        $(document).ready( function(){
+            $('#pic').on('change',function(event){
+               $('#preview').attr('src',URL.createObjectURL(event.target.files[0]))
             });
         });
-    });
-</script>
 
 
+        
+    </script>
 @endsection

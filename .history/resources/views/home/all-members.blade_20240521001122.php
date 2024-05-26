@@ -71,13 +71,11 @@
                         @foreach($members as $member)
                             <div class="col-md-3 item mb-4">
                                 <div class="card member-card">
-                                @php
-                                    $image = $member->images->first();
-                                @endphp
-                                    @if($image)
-                                        <img  src="{{asset($image->path)}}" class="card-img-top" alt="Member 1">
+                                    @if($member->pic)
+                                        <img  src="{{asset($member->pic)}}" class="card-img-top" alt="Member 1">
                                     @else
                                         <img  src="{{asset('images/default_profile.jpg')}}" class="card-img-top" alt="Member 1">
+
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title">{{$member->name}}</h5>

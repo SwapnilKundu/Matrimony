@@ -234,7 +234,7 @@
             handleFileInputChange(event);
         });
 
-       
+        // Event listener for adding another file input
         $('#addFileInput').click(function () {
             // Template for new file input
             var newInput = '<div class="row mt-2">' +
@@ -249,10 +249,10 @@
                 '</div>' +
                 '</div>';
 
-            
+            // Append new file input to container
             $('#fileUploadContainer').append(newInput);
 
-            
+            // Add change event listener to dynamically added file inputs
             $('.file-input').on('change', function (event) {
                 handleFileInputChange(event);
             });

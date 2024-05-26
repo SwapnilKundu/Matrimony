@@ -200,7 +200,7 @@
                             <!-- Add another file upload button -->
                             <div class="row mt-2">
                                 <div class="col-md-12 d-flex justify-content-between">
-                                    <button type="button" class="btn btn-success" id="addFileInput">Add Another Photo</button>
+                                    <button type="button" class="btn btn-success" id="addFileInput">Add Another File</button>
                                 </div>
                             </div>
 
@@ -218,7 +218,6 @@
     </div>
 @endsection
 @section('custom-scripts')
-
 <script>
     $(document).ready(function () {
         // Function to handle file input change event
@@ -234,7 +233,7 @@
             handleFileInputChange(event);
         });
 
-       
+        // Event listener for adding another file input
         $('#addFileInput').click(function () {
             // Template for new file input
             var newInput = '<div class="row mt-2">' +
@@ -249,10 +248,10 @@
                 '</div>' +
                 '</div>';
 
-            
+            // Append new file input to container
             $('#fileUploadContainer').append(newInput);
 
-            
+            // Add change event listener to dynamically added file inputs
             $('.file-input').on('change', function (event) {
                 handleFileInputChange(event);
             });

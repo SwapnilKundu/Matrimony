@@ -78,6 +78,7 @@
                                         <img  src="{{asset($image->path)}}" class="card-img-top" alt="Member 1">
                                     @else
                                         <img  src="{{asset('images/default_profile.jpg')}}" class="card-img-top" alt="Member 1">
+
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title">{{$member->name}}</h5>
