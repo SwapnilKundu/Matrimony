@@ -129,7 +129,7 @@
                                 <li>Duration 36 Days</li>
                                 <!-- Add more features as needed -->
                             </ul>
-                            <a href="example2" class="btn btn-primary">Get This Package</a>
+                            <a href="#" class="btn btn-primary">Get This Package</a>
                         </div>
                     </div>
                 </div>
@@ -147,7 +147,7 @@
                                 <li>Duration 180 Days</li>
                                 <!-- Add more features as needed -->
                             </ul>
-                            <a href="example2" class="btn btn-primary">Get This Package</a>
+                            <a href="#" class="btn btn-primary">Get This Package</a>
                         </div>
                     </div>
                 </div>

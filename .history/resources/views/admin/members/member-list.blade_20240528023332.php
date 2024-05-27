@@ -51,10 +51,9 @@
                         <td>{{$member->nationality}}</td>
                         <td>{{$member->address}} {{$member->city}}</td>
                         @php
-                            $image = $member->images->first();
-                        @endphp
+                                    $image = $member->images->first();@endphp
                         <td>
-                            <img src="{{ asset($image ? $image->path : 'images/default_profile.jpg') }}" alt="" width="50px" height="50px" style="border-radius: 50%">
+                            <img src="{{asset($member->pic?$member->pic:'images/default_profile.jpg')}}" alt="" width="50px" height="50px" style="border-radius: 50%">
                         </td>
                         <td>
                             <lable class="{{$member->status==1?'badge badge-success':'badge badge-warning'}}">{{$member->status==1?'Approved':'Pending'}}</lable>

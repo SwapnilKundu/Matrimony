@@ -30,7 +30,7 @@
                                 @endphp
                                 <img style="width: 300px; height: 300px; border-radius: 50%;" src="{{ asset($image ? $image->path : 'images/default_profile.jpg') }}" alt="Profile Picture">
                                 <div>
-                                    <h3>{{ $member->name }}</h3>
+                                    <h3> {{ $member->name }}</h3>
                                 </div>
                             </div>
                             <div class="col-md-6">
