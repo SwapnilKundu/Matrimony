@@ -1,66 +1,258 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Matrimony Platform
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A modern, comprehensive matrimony (marriage matching) web application built with **Laravel 10**, designed to connect individuals seeking life partners. This platform provides a secure and user-friendly environment for matrimonial services.
 
-## About Laravel
+## 🎯 Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **User Registration & Profiles**: Create and manage detailed matrimonial profiles
+- **Profile Matching**: Smart matching algorithm to suggest compatible profiles
+- **Search & Filters**: Advanced search with multiple filter criteria
+- **Interest Management**: Send, receive, and manage profile interests
+- **Messages**: Direct messaging between matched users
+- **Notifications**: Real-time alerts for matches, messages, and profile views
+- **Profile Verification**: Two-step verification for account security
+- **Premium Features**: Optional subscription-based premium functionalities
+- **Admin Dashboard**: Comprehensive admin panel for platform management
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📋 Tech Stack
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Backend**: Laravel 10.x
+- **Frontend**: JavaScript, Blade Templating, Vue.js components (optional)
+- **Styling**: CSS, Tailwind CSS
+- **Database**: MySQL
+- **Authentication**: Laravel Sanctum API (for token-based auth)
+- **Mail Service**: SMTP/Mailpit for email notifications
+- **Real-time**: Pusher (optional, for real-time notifications)
+- **Build Tool**: Vite
 
-## Learning Laravel
+## 🚀 Getting Started
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Prerequisites
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- PHP 8.1+
+- Composer
+- MySQL 5.7+ or MariaDB
+- Node.js & npm (for frontend assets)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Installation
 
-## Laravel Sponsors
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/SwapnilKundu/Matrimony.git
+   cd Matrimony
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+2. **Install Dependencies**
+   ```bash
+   composer install
+   npm install
+   ```
 
-### Premium Partners
+3. **Setup Environment**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+4. **Configure Database**
+   Edit `.env` file and set your database credentials:
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=matrimony
+   DB_USERNAME=root
+   DB_PASSWORD=your_password
+   ```
 
-## Contributing
+5. **Run Migrations**
+   ```bash
+   php artisan migrate
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+6. **Seed Database (Optional)**
+   ```bash
+   php artisan db:seed
+   ```
 
-## Code of Conduct
+7. **Build Frontend Assets**
+   ```bash
+   npm run build
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+8. **Start Development Server**
+   ```bash
+   php artisan serve
+   ```
 
-## Security Vulnerabilities
+   The application will be available at `http://localhost:8000`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 📁 Project Structure
 
-## License
+```
+├── app/                      # Application logic
+│   ├── Http/Controllers/     # API and web controllers
+│   ├── Models/              # Eloquent models
+│   └── Services/            # Business logic
+├── database/
+│   ├── migrations/          # Database migrations
+│   ├── seeders/             # Database seeders
+│   └── factories/           # Model factories
+├── resources/
+│   ├── views/              # Blade templates
+│   └── js/                 # JavaScript components
+├── routes/                 # API and web routes
+├── public/                 # Public assets
+├── storage/                # File storage
+├── tests/                  # Unit and feature tests
+└── config/                 # Configuration files
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🔧 Configuration
+
+### Key Configuration Files
+
+- `config/app.php` - Application settings
+- `config/database.php` - Database configuration
+- `config/mail.php` - Mail/SMTP settings
+- `config/sanctum.php` - API authentication
+
+### Environment Variables
+
+Key environment variables to configure:
+
+```env
+APP_NAME=Matrimony
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=http://localhost
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_DATABASE=matrimony
+
+MAIL_MAILER=smtp
+MAIL_HOST=your-smtp-host
+MAIL_PORT=587
+MAIL_USERNAME=your-email
+MAIL_PASSWORD=your-password
+
+# Optional: For real-time features
+PUSHER_APP_ID=your-pusher-id
+PUSHER_APP_KEY=your-pusher-key
+```
+
+## 📚 API Endpoints
+
+### Authentication
+- `POST /api/register` - User registration
+- `POST /api/login` - User login
+- `POST /api/logout` - User logout
+
+### Profiles
+- `GET /api/profiles` - List all profiles
+- `GET /api/profiles/{id}` - Get profile details
+- `PUT /api/profiles/{id}` - Update profile
+- `DELETE /api/profiles/{id}` - Delete profile
+
+### Interests
+- `POST /api/interests` - Send interest
+- `GET /api/interests` - Get user interests
+- `PUT /api/interests/{id}` - Update interest status
+
+### Messages
+- `POST /api/messages` - Send message
+- `GET /api/messages/{id}` - Get conversation
+
+## 🧪 Testing
+
+Run the test suite:
+
+```bash
+php artisan test
+```
+
+For specific test file:
+
+```bash
+php artisan test tests/Feature/AuthTest.php
+```
+
+## 📝 Database Migrations
+
+Create a new migration:
+
+```bash
+php artisan make:migration create_table_name
+```
+
+Run migrations:
+
+```bash
+php artisan migrate
+```
+
+Rollback migrations:
+
+```bash
+php artisan migrate:rollback
+```
+
+## 🔐 Security
+
+- All passwords are hashed using bcrypt
+- CSRF protection enabled on all forms
+- SQL injection prevention through Eloquent ORM
+- XSS protection via Blade templating
+- Rate limiting on API endpoints
+- Two-factor authentication support
+
+## 📦 Available Commands
+
+```bash
+# Development
+php artisan serve              # Start development server
+npm run dev                    # Start Vite dev server
+npm run build                  # Build production assets
+
+# Database
+php artisan migrate            # Run migrations
+php artisan db:seed           # Seed database
+php artisan tinker            # Interactive shell
+
+# Code Quality
+./vendor/bin/pint             # Format code with Pint
+php artisan test              # Run tests
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+Please ensure your code follows PSR-12 standards and includes appropriate tests.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🆘 Support
+
+For support, email your inquiry or open an issue in the GitHub repository.
+
+## 🙏 Acknowledgments
+
+- Built with [Laravel](https://laravel.com)
+- Icons from [Font Awesome](https://fontawesome.com)
+- Thanks to all contributors
+
+---
+
+**Last Updated**: May 2024
+
+For more information, visit the [GitHub Repository](https://github.com/SwapnilKundu/Matrimony)
